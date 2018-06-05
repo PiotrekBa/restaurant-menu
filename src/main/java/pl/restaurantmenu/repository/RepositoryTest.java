@@ -12,6 +12,7 @@ import java.util.List;
 public class RepositoryTest {
 
     private List<Restaurant> restaurants;
+    private long nextId = 0;
 
     public RepositoryTest() {
         getData();
@@ -48,8 +49,8 @@ public class RepositoryTest {
         Menu menu2 = new Menu(2L, dishes2);
 
         //Restaurant
-        Restaurant restaurant1 = new Restaurant(1L, "Molto Bene", "Poznan", menu1);
-        Restaurant restaurant2 = new Restaurant(2L, "Picobelo", "Warszawa", menu2);
+        Restaurant restaurant1 = new Restaurant(nextId++, "Molto Bene", "Poznan", menu1);
+        Restaurant restaurant2 = new Restaurant(nextId++, "Picobelo", "Warszawa", menu2);
 
         restaurants.add(restaurant1);
         restaurants.add(restaurant2);
@@ -58,6 +59,16 @@ public class RepositoryTest {
     }
 
     public void add(Restaurant restaurant) {
+        restaurant.setId(nextId++);
         restaurants.add(restaurant);
+    }
+
+    public Restaurant getById(long id) {
+        for(Restaurant r : restaurants) {
+            if(r.getId() == id) {
+                return r;
+            }
+        }
+        return null;
     }
 }

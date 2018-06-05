@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.restaurantmenu.entity.Restaurant;
@@ -26,7 +27,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/form-restaurant")
-    public String addform() {
+    public String addForm() {
         return "form-restaurant";
     }
 
@@ -36,4 +37,10 @@ public class RestaurantController {
         return "redirect:/";
     }
 
+    @GetMapping("/details/{id}")
+    public String showDetails(@PathVariable long id, Model model) {
+        Restaurant restaurant = repositoryTest.getById(id);
+        model.addAttribute("restaurant", restaurant);
+        return "restaurant-details";
+    }
 }

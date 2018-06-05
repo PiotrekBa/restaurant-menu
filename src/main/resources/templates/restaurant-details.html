@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+Restaurant <span th:text="${restaurant.getName()}">Name</span><br>
+
+<span th:text="${restaurant.getAddress()}">Address</span>
+
+<div th:if="${restaurant.getMenu() != null}">
+        <ul th:each="dish : ${restaurant.getMenu().getDishes()}">
+
+            <li>
+                <span th:text="${dish.getName()}"></span><br>
+                <span th:text="${dish.getDescription()}"></span><br>
+                <span th:text="${dish.getPrice()}"></span>
+            </li>
+        </ul>
+</div>
+<p>
+    <a th:href="@{/}">Home</a>
+</p>
+</body>
+</html>
