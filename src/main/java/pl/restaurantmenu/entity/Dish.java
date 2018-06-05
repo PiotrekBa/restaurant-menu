@@ -12,6 +12,13 @@ public class Dish {
     public Dish() {
     }
 
+    public Dish(long id, String name, String description, float price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public long getId() {
         return id;
     }

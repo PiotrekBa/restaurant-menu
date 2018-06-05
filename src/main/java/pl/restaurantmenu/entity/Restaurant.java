@@ -8,7 +8,16 @@ public class Restaurant {
 
     private String address;
 
+    private Menu menu;
+
     public Restaurant() {
+    }
+
+    public Restaurant(long id, String name, String address, Menu menu) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.menu = menu;
     }
 
     public long getId() {

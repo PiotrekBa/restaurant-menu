@@ -11,6 +11,11 @@ public class Menu {
     public Menu() {
     }
 
+    public Menu(long id, List<Dish> dishes) {
+        this.id = id;
+        this.dishes = dishes;
+    }
+
     public long getId() {
         return id;
     }
