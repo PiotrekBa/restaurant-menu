@@ -5,12 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-Restaurants Menu
+Add Restaurant
 <p>
-    <a th:href="@{/restaurant/form-restaurant}">Add Restaurant</a>
+    <a th:href="@{/}">Home</a>
 </p>
-<p>
-    <a th:href="@{/restaurant}">Restaurants</a>
-</p>
+<form method="post">
+    Name <input type="text" name="name"><br>
+    Address <input type="text" name="address"><br>
+    <input type="submit" value="Save">
+</form>
 </body>
 </html>

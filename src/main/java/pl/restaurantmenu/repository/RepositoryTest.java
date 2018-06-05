@@ -11,22 +11,33 @@ import java.util.List;
 @Component
 public class RepositoryTest {
 
+    private List<Restaurant> restaurants;
+
     public RepositoryTest() {
+        getData();
     }
 
-    public List<Restaurant> getData() {
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
+    }
+
+    private void getData() {
         List<Restaurant> restaurants = new ArrayList<>();
 
         //Dishes
-        Dish dish1_1 = new Dish(1L, "Pizza Margerita", "Delicious", 14.00F );
-        Dish dish1_2 = new Dish(2L, "Pizza Fungi", "Delicious", 18.50F );
+        Dish dish1_1 = new Dish(1L, "Pizza Margerita", "Delicious", 14.00F);
+        Dish dish1_2 = new Dish(2L, "Pizza Fungi", "Delicious", 18.50F);
 
         List<Dish> dishes1 = new ArrayList<>();
         dishes1.add(dish1_1);
         dishes1.add(dish1_2);
 
-        Dish dish2_1 = new Dish(3L, "Spaghetti Bolonese", "Delicious", 11.00F );
-        Dish dish2_2 = new Dish(4L, "Spaghetti Carbonara", "Delicious", 13.00F );
+        Dish dish2_1 = new Dish(3L, "Spaghetti Bolonese", "Delicious", 11.00F);
+        Dish dish2_2 = new Dish(4L, "Spaghetti Carbonara", "Delicious", 13.00F);
 
         List<Dish> dishes2 = new ArrayList<>();
         dishes2.add(dish2_1);
@@ -43,6 +54,10 @@ public class RepositoryTest {
         restaurants.add(restaurant1);
         restaurants.add(restaurant2);
 
-        return restaurants;
+        this.restaurants = restaurants;
+    }
+
+    public void add(Restaurant restaurant) {
+        restaurants.add(restaurant);
     }
 }

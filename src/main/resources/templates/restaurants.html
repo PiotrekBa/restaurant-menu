@@ -10,13 +10,14 @@ Restaurants
     <li>
         <span th:text="${restaurant.getName()}">Name</span><br>
         <span th:text="${restaurant.getAddress()}">Address</span>
-        <ul th:each="dish : ${restaurant.getMenu().getDishes()}">
-            <li>
-                <span th:text="${dish.getName()}"></span><br>
-                <span th:text="${dish.getDescription()}"></span><br>
-                <span th:text="${dish.getPrice()}"></span>
-            </li>
-        </ul>
+        <a th:href="@{'/restaurant/details/' + ${restaurant.getId()}}">Menu</a>
+        <!--<ul th:each="dish : ${restaurant.getMenu().getDishes()}">-->
+            <!--<li>-->
+                <!--<span th:text="${dish.getName()}"></span><br>-->
+                <!--<span th:text="${dish.getDescription()}"></span><br>-->
+                <!--<span th:text="${dish.getPrice()}"></span>-->
+            <!--</li>-->
+        <!--</ul>-->
     </li>
 </ul>
 <p>
