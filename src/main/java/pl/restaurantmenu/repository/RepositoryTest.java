@@ -29,8 +29,8 @@ public class RepositoryTest {
         Dish dish2_2 = new Dish(4L, "Spaghetti Carbonara", "Delicious", 13.00F );
 
         List<Dish> dishes2 = new ArrayList<>();
-        dishes1.add(dish2_1);
-        dishes1.add(dish2_2);
+        dishes2.add(dish2_1);
+        dishes2.add(dish2_2);
 
         //Menu
         Menu menu1 = new Menu(1L, dishes1);

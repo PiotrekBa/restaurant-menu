@@ -5,11 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="Restaurants:"/>
+Restaurants
 <ul th:each=" restaurant : ${restaurants}">
     <li>
-        <span th:text="${restaurant.getName()}">Nazwa</span>
+        <span th:text="${restaurant.getName()}">Name</span><br>
+        <span th:text="${restaurant.getAddress()}">Address</span>
+        <ul th:each="dish : ${restaurant.getMenu().getDishes()}">
+            <li>
+                <span th:text="${dish.getName()}"></span><br>
+                <span th:text="${dish.getDescription()}"></span><br>
+                <span th:text="${dish.getPrice()}"></span>
+            </li>
+        </ul>
     </li>
 </ul>
+<p>
+    <a th:href="@{/}">Home</a>
+</p>
 </body>
 </html>

@@ -43,4 +43,12 @@ public class Restaurant {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
 }
