@@ -9,7 +9,7 @@ Restaurants
 <ul th:each=" restaurant : ${restaurants}">
     <li>
         <span th:text="${restaurant.getName()}">Name</span><br>
-        <span th:text="${restaurant.getAddress()}">Address</span>
+        <span th:text="${restaurant.getCity()}">Address</span>
         <a th:href="@{'/restaurant/details/' + ${restaurant.getId()}}">Menu</a>
     </li>
 </ul>

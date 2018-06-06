@@ -13,10 +13,9 @@ public class Dish {
     @Column(length = 100, nullable = false)
     private String name;
 
-
     private String description;
 
-    @Column(scale=2, precision = 5)
+    @Column(scale=2, precision = 5, nullable = false)
     private float price;
 
     public Dish() {

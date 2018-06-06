@@ -10,9 +10,11 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(length = 100, nullable = false)
     private String name;
 
-    private String address;
+    @Column(length = 100, nullable = false)
+    private String city;
 
     @OneToOne
     private Menu menu;
@@ -20,10 +22,10 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(long id, String name, String address, Menu menu) {
+    public Restaurant(long id, String name, String city, Menu menu) {
         this.id = id;
         this.name = name;
-        this.address = address;
+        this.city = city;
         this.menu = menu;
     }
 
@@ -43,12 +45,12 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCity(String address) {
+        this.city = address;
     }
 
     public Menu getMenu() {

@@ -11,6 +11,9 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(length = 100)
+    private String category;
+
     @OneToMany
     private List<Dish> dishes;
 
@@ -36,5 +39,13 @@ public class Menu {
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -7,7 +7,7 @@
 <body>
 Restaurant <span th:text="${restaurant.getName()}">Name</span><br>
 
-<span th:text="${restaurant.getAddress()}">Address</span>
+<span th:text="${restaurant.getCity()}">Address</span>
 
 <div th:if="${restaurant.getMenu() != null}">
         <ul th:each="dish : ${restaurant.getMenu().getDishes()}">
