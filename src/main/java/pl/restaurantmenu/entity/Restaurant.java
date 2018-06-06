@@ -1,13 +1,20 @@
 package pl.restaurantmenu.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "restaurants")
 public class Restaurant {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
 
     private String address;
 
+    @OneToOne
     private Menu menu;
 
     public Restaurant() {

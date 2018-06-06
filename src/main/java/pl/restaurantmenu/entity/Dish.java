@@ -1,12 +1,22 @@
 package pl.restaurantmenu.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "dishes")
 public class Dish {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(length = 100, nullable = false)
     private String name;
+
 
     private String description;
 
+    @Column(scale=2, precision = 5)
     private float price;
 
     public Dish() {

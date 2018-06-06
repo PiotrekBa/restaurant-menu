@@ -1,11 +1,17 @@
 package pl.restaurantmenu.entity;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "menus")
 public class Menu {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToMany
     private List<Dish> dishes;
 
     public Menu() {
