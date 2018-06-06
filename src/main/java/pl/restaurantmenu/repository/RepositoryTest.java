@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import pl.restaurantmenu.entity.Dish;
 import pl.restaurantmenu.entity.Menu;
 import pl.restaurantmenu.entity.Restaurant;
+import pl.restaurantmenu.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,12 @@ import java.util.List;
 public class RepositoryTest {
 
     private List<Restaurant> restaurants;
+    private User user;
     private long nextId = 0;
 
     public RepositoryTest() {
         getData();
+        getUserData();
     }
 
     public List<Restaurant> getRestaurants() {
@@ -24,6 +27,14 @@ public class RepositoryTest {
 
     public void setRestaurants(List<Restaurant> restaurants) {
         this.restaurants = restaurants;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     private void getData() {
@@ -56,6 +67,8 @@ public class RepositoryTest {
         restaurants.add(restaurant2);
 
         this.restaurants = restaurants;
+
+
     }
 
     public void add(Restaurant restaurant) {
@@ -70,5 +83,10 @@ public class RepositoryTest {
             }
         }
         return null;
+    }
+
+    public void getUserData() {
+        User user = new User(0L, "a", "a", restaurants);
+        this.user = user;
     }
 }
