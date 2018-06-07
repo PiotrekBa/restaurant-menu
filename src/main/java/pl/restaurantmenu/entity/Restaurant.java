@@ -1,6 +1,8 @@
 package pl.restaurantmenu.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "restaurants")
@@ -11,22 +13,19 @@ public class Restaurant {
     private long id;
 
     @Column(length = 100, nullable = false)
+    @NotNull
+    @Size(min = 3, max = 100, message = "The name must has min 3 character")
     private String name;
 
     @Column(length = 100, nullable = false)
+    @NotNull
+    @Size(min = 3, max = 100, message = "The city must has min 3 character")
     private String city;
 
     @OneToOne
     private Menu menu;
 
     public Restaurant() {
-    }
-
-    public Restaurant(long id, String name, String city, Menu menu) {
-        this.id = id;
-        this.name = name;
-        this.city = city;
-        this.menu = menu;
     }
 
     public long getId() {

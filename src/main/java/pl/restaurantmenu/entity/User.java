@@ -1,6 +1,11 @@
 package pl.restaurantmenu.entity;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -11,23 +16,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(length = 20)
+    @NotNull
+    @Size(min = 3, max = 20, message = "The username must has min 3 character")
     private String userName;
 
+    @NotNull
+    @Size(min = 5, message = "The password must has min 5 character or digit")
     private String password;
 
+    @Email
+    @NotNull
+    @Column(unique = true)
     private String email;
 
     @OneToMany
     private List<Restaurant> restaurants;
 
     public User() {
-    }
-
-    public User(long id, String userName, String password, List<Restaurant> restaurants) {
-        this.id = id;
-        this.userName = userName;
-        this.password = password;
-        this.restaurants = restaurants;
     }
 
     public long getId() {
@@ -60,5 +66,13 @@ public class User {
 
     public void setRestaurants(List<Restaurant> restaurants) {
         this.restaurants = restaurants;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

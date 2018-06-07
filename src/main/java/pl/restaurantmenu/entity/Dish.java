@@ -1,6 +1,10 @@
 package pl.restaurantmenu.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "dishes")
@@ -11,21 +15,20 @@ public class Dish {
     private long id;
 
     @Column(length = 100, nullable = false)
+    @NotNull
+    @Size(min = 3, max = 100, message = "The name must has min 3 character")
     private String name;
 
+    @NotNull
+    @Size(max = 255)
     private String description;
 
-    @Column(scale=2, precision = 5, nullable = false)
-    private float price;
+    @Column(scale = 2, precision = 5, nullable = false)
+    @NotNull
+    @DecimalMin(value = "0.01", message = "The value must be greater then 0")
+    private BigDecimal price;
 
     public Dish() {
-    }
-
-    public Dish(long id, String name, String description, float price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
     }
 
     public long getId() {
@@ -52,11 +55,11 @@ public class Dish {
         this.description = description;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

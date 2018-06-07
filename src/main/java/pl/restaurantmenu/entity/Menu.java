@@ -1,6 +1,8 @@
 package pl.restaurantmenu.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -12,17 +14,14 @@ public class Menu {
     private long id;
 
     @Column(length = 100)
+    @NotNull
+    @Size(min = 3, max = 100, message = "The category must has min 3 character")
     private String category;
 
     @OneToMany
     private List<Dish> dishes;
 
     public Menu() {
-    }
-
-    public Menu(long id, List<Dish> dishes) {
-        this.id = id;
-        this.dishes = dishes;
     }
 
     public long getId() {
