@@ -24,8 +24,8 @@ public class User {
     @Size(min = 5, message = "The password must has min 5 character or digit")
     private String password;
 
-    @Email
-    @NotEmpty(message = "Email can not be empty")
+    @Email(message = "Email is incorect")
+    @NotEmpty(message = "Email is incorect")
     @Column(unique = true)
     private String email;
 
