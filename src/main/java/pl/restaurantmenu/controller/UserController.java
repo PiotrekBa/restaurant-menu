@@ -28,26 +28,40 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String submitSignIn(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-        if(result.hasErrors()) {
+    public String submitSignUp(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "signup";
         }
         userRepo.save(user);
         return "redirect:/";
     }
 
-    @GetMapping("/profile")
-    public String profile() {
-        return "user-profile";
+    @GetMapping("/signin")
+    public String loginForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "signin";
     }
 
-    @GetMapping("/login")
-    public String loginForm() {
-        return "user-login";
+    @PostMapping("/signin")
+    public String login(@Valid @ModelAttribute User user, BindingResult result) {
+        if(result.hasErrors()) {
+            return "signin";
+        }
+        String email = user.getEmail();
+        User u = userRepo.findByEmail(email);
+        if(u == null) {
+            return "signin";
+        }
+        String password = user.getPassword();
+        if(u.getPassword().equals(password)) {
+            return "/";
+        }
+        return "signin";
     }
 
-    @PostMapping("/login")
-    public String login(User user) {
-        return "user-profile";
-    }
+//    @GetMapping("/profile")
+//    public String profile() {
+//        return "user-profile";
+//    }
 }
