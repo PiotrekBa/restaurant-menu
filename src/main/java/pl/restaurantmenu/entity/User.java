@@ -1,9 +1,8 @@
 package pl.restaurantmenu.entity;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -26,7 +25,7 @@ public class User {
     private String password;
 
     @Email
-    @NotNull
+    @NotEmpty(message = "Email can not be empty")
     @Column(unique = true)
     private String email;
 
