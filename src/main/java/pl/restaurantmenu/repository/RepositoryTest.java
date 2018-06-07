@@ -6,6 +6,7 @@ import pl.restaurantmenu.entity.Menu;
 import pl.restaurantmenu.entity.Restaurant;
 import pl.restaurantmenu.entity.User;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,30 +42,30 @@ public class RepositoryTest {
         List<Restaurant> restaurants = new ArrayList<>();
 
         //Dishes
-        Dish dish1_1 = new Dish(1L, "Pizza Margerita", "Delicious", 14.00F);
-        Dish dish1_2 = new Dish(2L, "Pizza Fungi", "Delicious", 18.50F);
+//        Dish dish1_1 = new Dish(1L, "Pizza Margerita", "Delicious", new BigDecimal(1));
+//        Dish dish1_2 = new Dish(2L, "Pizza Fungi", "Delicious", 18.50F);
 
         List<Dish> dishes1 = new ArrayList<>();
-        dishes1.add(dish1_1);
-        dishes1.add(dish1_2);
+//        dishes1.add(dish1_1);
+//        dishes1.add(dish1_2);
 
-        Dish dish2_1 = new Dish(3L, "Spaghetti Bolonese", "Delicious", 11.00F);
-        Dish dish2_2 = new Dish(4L, "Spaghetti Carbonara", "Delicious", 13.00F);
+//        Dish dish2_1 = new Dish(3L, "Spaghetti Bolonese", "Delicious", 11.00F);
+//        Dish dish2_2 = new Dish(4L, "Spaghetti Carbonara", "Delicious", 13.00F);
 
         List<Dish> dishes2 = new ArrayList<>();
-        dishes2.add(dish2_1);
-        dishes2.add(dish2_2);
+//        dishes2.add(dish2_1);
+//        dishes2.add(dish2_2);
 
         //Menu
-        Menu menu1 = new Menu(1L, dishes1);
-        Menu menu2 = new Menu(2L, dishes2);
+//        Menu menu1 = new Menu(1L, dishes1);
+//        Menu menu2 = new Menu(2L, dishes2);
 
         //Restaurant
-        Restaurant restaurant1 = new Restaurant(nextId++, "Molto Bene", "Poznan", menu1);
-        Restaurant restaurant2 = new Restaurant(nextId++, "Picobelo", "Warszawa", menu2);
+//        Restaurant restaurant1 = new Restaurant(nextId++, "Molto Bene", "Poznan", menu1);
+//        Restaurant restaurant2 = new Restaurant(nextId++, "Picobelo", "Warszawa", menu2);
 
-        restaurants.add(restaurant1);
-        restaurants.add(restaurant2);
+//        restaurants.add(restaurant1);
+//        restaurants.add(restaurant2);
 
         this.restaurants = restaurants;
 
@@ -86,7 +87,7 @@ public class RepositoryTest {
     }
 
     public void getUserData() {
-        User user = new User(0L, "a", "a", restaurants);
-        this.user = user;
+//        User user = new User(0L, "a", "a", restaurants);
+//        this.user = user;
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul class="nav justify-content-center" th:fragment="nav">
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/restaurant/form-restaurant}">Form</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/user/add}">Add User</a>
+    </li>
+    <!--<a th:href="@{/restaurant}">Restaurants</a>-->
+    <!--<a th:href="@{/user/profile}">Login</a>-->
+</ul>
+</body>
+</html>
